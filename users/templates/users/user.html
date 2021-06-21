@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+</head>
+<body>
+<h1>Hello, {{user.first_name}}</h1>
+<ul>
+    <li>Currently logged in as: {{user.username}}</li>
+    <li><a href="{% url 'logout' %}">Logout</a> </li>
+</ul>
+<div>
+    <h2><a href="{% url 'indexOFpats' %}">PATIENTS</a></h2>
+
+
+</div>
+
+</body>
+</html>

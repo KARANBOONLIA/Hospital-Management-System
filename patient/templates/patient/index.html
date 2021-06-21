@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<div>
+    {% if loggedin %}
+        <a href="{% url 'login' %}"><button>Login</button></a>
+        <a href="{% url 'register' %}"><button>Signup</button></a>
+    {% endif %}
+    <hr>
+</div>
+<head>
+    <h1>LIST OF PATIENTS</h1>
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+    {% for x in Patient %}
+        <li>
+        <a href="{% url 'details' x.id %}">{{x.pat_name}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+<a href="{% url 'add' %}">add a patient</a>
+</body>
+</html>

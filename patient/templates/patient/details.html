@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<hr lang="en">
+<head>
+    <h1>COMPLETE PATIENT DETAILS</h1>
+    <title>Title</title>
+</head>
+<ul>
+    <li>NAME: {{p1.pat_name}}</li>
+    <li>CODE: {{p1.pat_code}}</li>
+    <li>ILLNESS: {{p1.pat_illness}}</li>
+</ul>
+<h2>List of doctors treating patient</h2>
+<ul>
+    {% for x in all_docs %}
+    <li>{{x.name}}</li>
+    {% empty %}
+    <li>NO DOCTORS </li>
+    {% endfor %}
+</ul>
+<hr>
+<h2>Add a doctor</h2>
+{% if non_docs %}
+<form action="{% url 'book' p1.id %}" method="post">
+    {% csrf_token %}
+    <select name ='doc_object'>
+        {% for x in non_docs %}
+            <option value="{{x.name}}">{{x.name}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Book Appointment"/>
+</form>
+{% else %}
+<div>no doctors to add</div>
+{% endif %}
+<hr>
+
+
+<a href="{% url 'indexOFpats' %}">back to full list</a>
+<form action="{% url 'delete' p1.pk %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <input type="hidden" name="pat_id" value="{{p1.pk}}"/>
+    <button type="submit" class="btn btn-default btn-sm">Delete</button>
+</form>
+
+</html>

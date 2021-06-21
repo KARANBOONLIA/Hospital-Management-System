@@ -1,0 +1,22 @@
+
+<!-- this is a template for a model form -->
+<!-- It has to be named ModelName_form  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD DETAILS</title>
+</head>
+<body>
+    <form class='form-horizontal' action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include 'patient/form-template.html'%}
+        <div class="form-group">
+            <div class="">
+                <button type="submit" class="btn btn-success">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
